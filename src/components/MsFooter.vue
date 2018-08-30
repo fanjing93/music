@@ -71,9 +71,9 @@
           -webkit-border-radius: 50%;
           -moz-border-radius: 50%;
           border-radius: 50%;
-          -webkit-animation: img-rotate 5s infinite;
-          -o-animation: img-rotate 5s infinite;
-          animation: img-rotate 5s infinite;
+          -webkit-animation: img-rotate 5s linear infinite;
+          -o-animation: img-rotate 5s linear infinite;
+          animation: img-rotate 5s linear infinite;
         }
       }
       .ms-song-lyric{
@@ -99,7 +99,58 @@
     }
   }
 
-  @keyframes img-rotate{
+  @-webkit-keyframes img-rotate {
+    from{
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to{
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+
+  @-o-keyframes img-rotate {
+    from{
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to{
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+
+  @-moz-keyframes img-rotate {
+    from{
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to{
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes img-rotate {
     from{
       -webkit-transform: rotate(0deg);
       -moz-transform: rotate(0deg);
