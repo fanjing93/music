@@ -45,7 +45,6 @@
 <style type="text/less" lang="less">
   .ms-swiper {
     width: 100%;
-    height: 12rem;
     img{
       width: 100%;
       height: 100%;

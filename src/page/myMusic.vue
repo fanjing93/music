@@ -5,8 +5,9 @@
       <swiper-list :recommends="recommends"></swiper-list>
       <menu-list></menu-list>
       <song-list :list="songlist"></song-list>
-      <mv-list></mv-list>
+      <mv-list :mvl="mvlist"></mv-list>
     </div>
+    <ms-footer></ms-footer>
   </div>
 </template>
 
@@ -16,6 +17,7 @@
   import MenuList from '@/components/MenuList';
   import SongList from '@/components/SongList';
   import MvList from '@/components/MvList';
+  import MsFooter from '@/components/MsFooter';
   import API from '@/config/api';
   import {mapActions} from 'vuex';
 
@@ -34,7 +36,8 @@
       'swiper-list': SwiperList,
       'menu-list': MenuList,
       'song-list': SongList,
-      'mv-list': MvList
+      'mv-list': MvList,
+      'ms-footer': MsFooter
     },
     methods: {
       ...mapActions([
@@ -55,7 +58,7 @@
         console.log(response.data.data);
         this.recommends = response.data.data.focus;
         this.songlist = response.data.data['hotdiss'].list;
-        this.mvlist = response.data.data['shoubomv'].all.slice(0, 4);
+        this.mvlist = response.data.data['shoubomv'].all;
       }).catch(function (response) {
         console.log(response)
       })
@@ -64,7 +67,8 @@
 </script>
 
 <style type="text/less" lang="less">
-  .content{
-    padding-top: 90px;
+  .content {
+    padding-top: 5.96rem;
+    padding-bottom: 3.5rem;
   }
 </style>

@@ -2,7 +2,7 @@
   <div class="ms-song-list">
     <part-title :partTitle="partTitle"></part-title>
     <ul class="ms-song-list-container">
-      <list-item v-for="(item,index) in list" :key="item.dissid" :dataList="item" v-if="index <= 5"></list-item>
+      <list-item v-for="(item,index) in list" :key="item['dissid']" :type="type" :dataList="item" v-if="index <= 5"></list-item>
     </ul>
   </div>
 </template>
@@ -16,7 +16,8 @@
     props:['list'],
     data: function () {
       return{
-        partTitle: '为你推荐歌曲'
+        partTitle: '为你推荐歌曲',
+        type: 'song'
       }
     },
     components: {
@@ -34,6 +35,7 @@
       width: 100%;
       display: flex;
       flex-wrap: wrap;
+      justify-content: space-between;
     }
   }
 </style>

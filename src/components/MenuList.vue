@@ -62,7 +62,7 @@
       align-items: center;
       flex-basis: 100% / 3;
       justify-content: start;
-      padding: 1rem;
+      padding: 0.6rem 1rem;
       i {
         color: #41B883;
         font-size: 1.6rem;

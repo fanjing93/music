@@ -17,8 +17,8 @@
       </li>
       <li><i class="btn-right-menu iconfont">&#xe600;</i></li>
     </ul>
-    <transition enter-active-class="animated fadeInDown" leave-active-class="animated fadeOutUp">
-      <router-link tag="div" to="/search" class="ms-header-search">
+    <transition name="fade">
+      <router-link v-show="!scrolled" tag="div" to="/search" class="ms-header-search">
         <input type="search" placeholder="搜索">
       </router-link>
     </transition>
@@ -31,7 +31,29 @@
   export default {
     name: "ms-header",
     props: ['activeIndex'],
-    methods: {}
+    data: function () {
+      return{
+        scrolled: false
+      }
+    },
+    methods: {
+      handleScroll: function () {
+        let beforeScrollY = window.scrollY;
+        window.addEventListener('scroll', () => {
+          let afterScrollY = window.scrollY;
+          let diffY = afterScrollY - beforeScrollY;
+          if (diffY > 25) { // 向下滚动距离大于25
+            this.scrolled = true
+          } else if (diffY < -10) { // 向上滚动
+            this.scrolled = false
+          }
+          beforeScrollY = afterScrollY;
+        }, false);
+      }
+    },
+    mounted: function () {
+      this.handleScroll()
+    }
   }
 </script>
 
@@ -42,7 +64,7 @@
     left: 0;
     z-index: 2;
     width: 100%;
-    height: 90px;
+    height: auto;
     padding: 0.8rem 1rem;
     background-color: #41B883;
     .ms-header {
@@ -80,5 +102,11 @@
         }
       }
     }
+  }
+  .fade-enter-active, .fade-leave-active {
+    height: auto;
+  }
+  .fade-enter, .fade-leave-active {
+    height: 0;
   }
 </style>

@@ -45,7 +45,7 @@
     box-sizing: border-box;
   }
 
-  ol,ul,li{
+  ol, ul, li {
     list-style-type: none;
   }
 
@@ -58,6 +58,23 @@
     outline: none;
     -webkit-appearance: none;
     border-radius: 0;
+  }
+
+  .text-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .text-ellipsis-2 {
+    display: -webkit-box;
+    display: -moz-box;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /*显示行数*/
   }
 
   /*容器弹性盒子排列*/

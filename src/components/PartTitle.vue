@@ -21,6 +21,7 @@
       font-size: 1.2rem;
       flex: 1;
       text-align: center;
+      margin-left: 2rem;
     }
     i{
       flex-basis: 1.3rem;

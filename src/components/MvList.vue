@@ -2,7 +2,7 @@
   <div class="ms-song-list">
     <part-title :partTitle="partTitle"></part-title>
     <ul class="ms-song-list-container">
-      <list-item v-for="(item,index) in list" :key="item.dissid" :dataList="item" v-if="index <= 5"></list-item>
+      <list-item v-for="(item,index) in mvl" :key="item['mv_id']" :type="type" :dataList="item" v-if="index <= 5"></list-item>
     </ul>
   </div>
 </template>
@@ -14,9 +14,11 @@
 
   export default {
     name: "MvList",
+    props:['mvl'],
     data: function () {
       return{
-        partTitle: 'MV'
+        partTitle: '最新MV',
+        type: 'mv'
       }
     },
     components: {
