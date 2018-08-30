@@ -5,6 +5,7 @@
 </template>
 
 <script>
+
   export default {
     name: 'App'
   }
@@ -15,6 +16,8 @@
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    width: 100%;
+    height: 100%;
   }
 
   @font-face {
@@ -58,6 +61,7 @@
     outline: none;
     -webkit-appearance: none;
     border-radius: 0;
+    border: none;
   }
 
   .text-ellipsis {

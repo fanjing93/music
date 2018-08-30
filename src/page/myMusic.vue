@@ -28,7 +28,7 @@
         activeIndex: 1,
         recommends: [],
         songlist: [],
-        mvlist: []
+        mvlist: [],
       }
     },
     components: {
@@ -54,8 +54,7 @@
           rnd: 0
         },
         jsonp: 'jsonpCallback'
-      }).then((response) => {
-        console.log(response.data.data);
+      }).then(response => {
         this.recommends = response.data.data.focus;
         this.songlist = response.data.data['hotdiss'].list;
         this.mvlist = response.data.data['shoubomv'].all;
