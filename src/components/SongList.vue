@@ -21,20 +21,14 @@
       return {
         partTitle: '为你推荐歌曲',
         type: 'song',
-        song_index: 1,
         s_list: [],
         listLen:0
       }
     },
-    computed: {},
     methods: {
       changSong: function (index) {
-
         this.s_list = this.list.slice(index * 6, (index + 1) * 6);
       }
-    },
-    mounted: function () {
-
     },
     components: {
       'part-title': PartTitle,
