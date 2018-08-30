@@ -55,6 +55,7 @@
         },
         jsonp: 'jsonpCallback'
       }).then(response => {
+        console.log(response.data.data);
         this.recommends = response.data.data.focus;
         this.songlist = response.data.data['hotdiss'].list;
         this.mvlist = response.data.data['shoubomv'].all;

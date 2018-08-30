@@ -30,8 +30,8 @@
       }
     },
     computed: {
-      // 定义sweiper对象
       swiper() {
+        // 定义sweiper对象
         return this.$refs.mySwiper.swiper
       }
     },
