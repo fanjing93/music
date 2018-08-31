@@ -9,16 +9,16 @@
           <span class="song-length" v-show="playMethod !== 1">({{ playlist.length }}首)</span>
         </div>
         <ul class="ms-list-title-right">
-          <li><i class="iconfont icon-iconxiazai1"></i></li>
-          <li><i class="iconfont icon-jiahao1"></i></li>
-          <li><i class="iconfont icon-shanchu"></i></li>
+          <li><i class="iconfont icon-xiazai000"></i></li>
+          <li><i class="iconfont icon-tian-jia"></i></li>
+          <li><i class="iconfont icon-shanchu4"></i></li>
         </ul>
       </div>
       <ul class="ms-list">
         <li class="ms-item">
           <div class="ms-item-song-info">目不转睛-王以太</div>
           <div class="ms-item-icon">
-            <i class="iconfont icon-shanchu"></i>
+            <i class="iconfont icon-shanchu4"></i>
           </div>
         </li>
         <li class="ms-item-add-song">
@@ -94,7 +94,7 @@
       }
       .ms-list-title {
         .ms-list-children();
-        padding: 0.6rem 1rem;
+        padding: 0.8rem 1rem;
         border-bottom: 1px solid #e2e2e2;
         font-size: 1.2rem;
         &-left {
@@ -121,7 +121,7 @@
       .ms-list-bottom {
         .ms-list-children();
         justify-content: center;
-        padding: 0.6rem 1rem;
+        padding: 0.8rem 1rem;
         border-top: 1px solid #e2e2e2;
       }
       .ms-list {

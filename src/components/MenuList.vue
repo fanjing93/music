@@ -30,12 +30,12 @@
       href: '/songList'
     },
     {
-      iconClass: 'icon-shipin',
+      iconClass: 'icon-icon434-copy',
       title: '视频MV',
       href: '/mv'
     },
     {
-      iconClass: 'icon-zhuanji',
+      iconClass: 'icon-zhuanji1',
       title: '数字专辑',
       href: '/album'
     }
