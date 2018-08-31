@@ -69,9 +69,9 @@ export default {
       ).then((response) => {
         // console.log(Base64.decode(response.data.lyric))
 
-        var lyricArr = [] // 用于存储歌词
-        var timeArr = [] // 用于存储时间
-        var re = /\[([0-9:\.]{8})\]/gm
+        let lyricArr = [] // 用于存储歌词
+        let timeArr = [] // 用于存储时间
+        let re = /\[([0-9:\.]{8})\]/gm
         Base64.decode(response.data.lyric).split(re).slice(1).forEach((value, index) => {
           if (index % 2 === 0) {
             timeArr.push(value)
@@ -81,19 +81,12 @@ export default {
         })
 
         // 将时间转换成毫秒，如：00:00.28 => 280, 00:01:10 => 1100
-        for (var i = 0; i < timeArr.length; i++) {
-          var minutes = parseInt(timeArr[i].split(':')[0])
-          var seconds = parseInt(timeArr[i].split(':')[1].split('.')[0])
-          var millisecond = parseInt(timeArr[i].split(':')[1].split('.')[1]) * 10
-          timeArr[i] = minutes * 60 * 1000 + seconds * 1000 + millisecond
-        }
-
-        // timeArr.map(time => {
-        //   var minutes = parseInt(time.split(':')[0])
-        //   var seconds = parseInt(time.split(':')[1].split('.')[0])
-        //   var bseconds = parseInt(time.split(':')[1].split('.')[1]) * 10
-        //   return minutes * 60 * 1000 + seconds * 1000 + bseconds
-        // })
+        timeArr.map(time => {
+          let minutes = parseInt(time.split(':')[0]);
+          let seconds = parseInt(time.split(':')[1].split('.')[0]);
+          let bseconds = parseInt(time.split(':')[1].split('.')[1]) * 10;
+          return minutes * 60 * 1000 + seconds * 1000 + bseconds;
+        })
 
         song.lyric = {
           lyric: Base64.decode(response.data.lyric),
@@ -104,12 +97,12 @@ export default {
         console.log(response)
       })
     }
-    state.song = song
+    state.song = song;
     // state.playlist.push(song)
-    state.songIndex = index
-    state.playingTime = 0
-    state.currentLyricIndex = 0
-    state.playState = true
+    state.songIndex = index;
+    state.playingTime = 0;
+    state.currentLyricIndex = 0;
+    state.playState = true;
   },
   // 切换播放状态
   [PLAY]: function (state) {
@@ -149,9 +142,9 @@ export default {
     if (!song.id) {
       song.id = song.songid
     }
-    var liked = state.likedSongs.indexOf(song.id) > -1 // 判断是否已标记为“我喜欢”
+    let liked = state.likedSongs.indexOf(song.id) > -1 // 判断是否已标记为“我喜欢”
     if (liked) { // 是则取消标记
-      var index = state.likedSongs.indexOf(song.id)
+      let index = state.likedSongs.indexOf(song.id)
       state.likedSongs.splice(index, 1)
     } else {
       state.likedSongs.push(song.id)

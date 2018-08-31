@@ -1,29 +1,37 @@
 <template>
-  <footer class="ms-footer-container">
-    <div class="ms-footer-left">
-      <div v-show="playState" class="ms-footer-static">QQ音乐 听我想听的音乐</div>
-      <div v-show="!playState" class="ms-footer-song-play">
-        <img src="https://y.gtimg.cn/music/photo_new/T002R500x500M000000CuHsv0PKkON.jpg" alt="">
-        <div class="ms-song-lyric">
-          <div class="song-name">目不转睛</div>
-          <div class="song-lyric">目不转睛 (Live) - 王以太</div>
+  <div class="ms-con-bottom">
+    <list v-show="true"></list>
+    <footer class="ms-footer-container">
+      <div class="ms-footer-left">
+        <div v-show="false" class="ms-footer-static">QQ音乐 听我想听的音乐</div>
+        <div v-show="true" class="ms-footer-song-play">
+          <img src="https://y.gtimg.cn/music/photo_new/T002R500x500M000000CuHsv0PKkON.jpg"
+               :class="playState ? 'animation-state-running' : 'animation-state-paused'" alt="">
+          <div class="ms-song-lyric">
+            <div class="song-name">目不转睛</div>
+            <div class="song-lyric">目不转睛 (Live) - 王以太</div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="ms-footer-control">
-      <i class="iconfont footer-btn-play" v-html="playState ? '&#xe710;' : '&#xe6d9;'"></i>
-      <i class="iconfont footer-btn-list">&#xe604;</i>
-    </div>
-  </footer>
+      <div class="ms-footer-control" :class="">
+        <i class="iconfont footer-btn-play" v-html="playState ? '&#xe710;' : '&#xe6d9;'" @click.stop="play"></i>
+        <i class="iconfont footer-btn-list">&#xe604;</i>
+      </div>
+    </footer>
+  </div>
 </template>
 
 <script>
   import {mapState, mapGetters, mapActions} from 'vuex';
+  import list from '@/components/list';
 
   export default {
     name: "MsFooter",
     data: function () {
       return {}
+    },
+    components:{
+      'list': list
     },
     computed: {
       ...mapState([
@@ -38,6 +46,20 @@
       ...mapGetters([
         'getAlbumCover'
       ]),
+    },
+    methods: {
+      ...mapActions([
+        'changeSongPlay',
+        'play',
+        'updateLyricIndex',
+        'setPlayerShow',
+        'setPlaylistShow'
+      ])
+    },
+    watch: {
+      playState(newVal, oldVal) {
+        // console.log(newVal);
+      }
     }
   }
 </script>
@@ -58,13 +80,13 @@
       height: 100%;
       padding: 0 1rem;
       .ms-footer-song-play,
-      .ms-footer-static{
+      .ms-footer-static {
         display: flex;
         width: 100%;
         height: 100%;
         align-items: center;
         font-size: 0.95rem;
-        img{
+        img {
           width: 2.6rem;
           height: 2.6rem;
           object-fit: cover;
@@ -74,9 +96,15 @@
           -webkit-animation: img-rotate 5s linear infinite;
           -o-animation: img-rotate 5s linear infinite;
           animation: img-rotate 5s linear infinite;
+          &.animation-state-running {
+            animation-play-state: running;
+          }
+          &.animation-state-paused {
+            animation-play-state: paused;
+          }
         }
       }
-      .ms-song-lyric{
+      .ms-song-lyric {
         flex: 1;
         height: 100%;
         display: flex;
@@ -90,6 +118,9 @@
       height: 100%;
       display: flex;
       align-items: center;
+      &.no-song i {
+        color: #e2e2e2;
+      }
       i {
         flex: 1;
         text-align: center;
@@ -100,14 +131,14 @@
   }
 
   @-webkit-keyframes img-rotate {
-    from{
+    from {
       -webkit-transform: rotate(0deg);
       -moz-transform: rotate(0deg);
       -ms-transform: rotate(0deg);
       -o-transform: rotate(0deg);
       transform: rotate(0deg);
     }
-    to{
+    to {
       -webkit-transform: rotate(360deg);
       -moz-transform: rotate(360deg);
       -ms-transform: rotate(360deg);
@@ -117,14 +148,14 @@
   }
 
   @-o-keyframes img-rotate {
-    from{
+    from {
       -webkit-transform: rotate(0deg);
       -moz-transform: rotate(0deg);
       -ms-transform: rotate(0deg);
       -o-transform: rotate(0deg);
       transform: rotate(0deg);
     }
-    to{
+    to {
       -webkit-transform: rotate(360deg);
       -moz-transform: rotate(360deg);
       -ms-transform: rotate(360deg);
@@ -134,14 +165,14 @@
   }
 
   @-moz-keyframes img-rotate {
-    from{
+    from {
       -webkit-transform: rotate(0deg);
       -moz-transform: rotate(0deg);
       -ms-transform: rotate(0deg);
       -o-transform: rotate(0deg);
       transform: rotate(0deg);
     }
-    to{
+    to {
       -webkit-transform: rotate(360deg);
       -moz-transform: rotate(360deg);
       -ms-transform: rotate(360deg);
@@ -151,14 +182,14 @@
   }
 
   @keyframes img-rotate {
-    from{
+    from {
       -webkit-transform: rotate(0deg);
       -moz-transform: rotate(0deg);
       -ms-transform: rotate(0deg);
       -o-transform: rotate(0deg);
       transform: rotate(0deg);
     }
-    to{
+    to {
       -webkit-transform: rotate(360deg);
       -moz-transform: rotate(360deg);
       -ms-transform: rotate(360deg);

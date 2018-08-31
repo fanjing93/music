@@ -11,7 +11,7 @@
   }
 </script>
 
-<style>
+<style type="text/less" lang="less">
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
