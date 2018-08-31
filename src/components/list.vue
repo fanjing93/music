@@ -1,6 +1,6 @@
 <template>
   <div class="ms-mark-container">
-    <div class="mark"></div>
+    <div class="mark" @click="CancelClick"></div>
     <div class="ms-list-container">
       <div class="ms-list-title">
         <div class="ms-list-title-left">
@@ -26,7 +26,7 @@
           添加歌曲到队列
         </li>
       </ul>
-      <div class="ms-list-bottom">关闭</div>
+      <div class="ms-list-bottom" @click="CancelClick">关闭</div>
     </div>
   </div>
 </template>
@@ -57,6 +57,9 @@
         'updatePlaylist',
         'setSongLiked'
       ]),
+      CancelClick: function () {
+        this.$emit('CancelClick',false);
+      }
     },
     watch: {}
   }

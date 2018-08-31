@@ -1,10 +1,10 @@
 <template>
   <div class="ms-con-bottom">
-    <list v-show="false"></list>
+    <list v-show="playlistShow" @CancelClick="setPlaylistShow"></list>
     <footer class="ms-footer-container">
       <div class="ms-footer-left">
-        <div v-show="false" class="ms-footer-static">QQ音乐 听我想听的音乐</div>
-        <div v-show="true" class="ms-footer-song-play">
+        <div v-show="!playlist.length" class="ms-footer-static">QQ音乐 听我想听的音乐</div>
+        <div v-show="playlist.length" class="ms-footer-song-play">
           <img src="https://y.gtimg.cn/music/photo_new/T002R500x500M000000CuHsv0PKkON.jpg"
                :class="playState ? 'animation-state-running' : 'animation-state-paused'" alt="">
           <div class="ms-song-lyric">
@@ -15,7 +15,7 @@
       </div>
       <div class="ms-footer-control" :class="">
         <i class="iconfont footer-btn-play" :class="playState ? 'icon-zanting' : 'icon-bofang'" @click.stop="play"></i>
-        <i class="iconfont footer-btn-list icon-bofangqi_shouyegequliebiao_"></i>
+        <i class="iconfont footer-btn-list icon-bofangqi_shouyegequliebiao_" @click.stop="setPlaylistShow(true)"></i>
       </div>
     </footer>
   </div>
