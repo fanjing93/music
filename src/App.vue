@@ -12,29 +12,13 @@
 </script>
 
 <style type="text/less" lang="less">
+  @import '../static/iconfont/iconfont.css';
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     width: 100%;
     height: 100%;
-  }
-
-  @font-face {
-    font-family: 'iconfont';  /* project id 471751 */
-    src: url('//at.alicdn.com/t/font_471751_3hbkwark1paxlxr.eot');
-    src: url('//at.alicdn.com/t/font_471751_3hbkwark1paxlxr.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_471751_3hbkwark1paxlxr.woff') format('woff'),
-    url('//at.alicdn.com/t/font_471751_3hbkwark1paxlxr.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_471751_3hbkwark1paxlxr.svg#iconfont') format('svg');
-  }
-
-  .iconfont {
-    font-family: "iconfont" !important;
-    font-size: 16px;
-    font-style: normal;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
 
   html, body, h1, h2, p, div, ul, ol, li, span {

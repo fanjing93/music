@@ -49,13 +49,13 @@ export default new Vuex.Store({
       var icon = ''
       var text = ''
       if (state.playMethod === 0) {
-        icon = '&#xe61f;'
+        icon = 'icon-shunxubofang'
         text = '顺序播放'
       } else if (state.playMethod === 1) {
-        icon = '&#xe61e;'
+        icon = 'icon-ttpodicon'
         text = '单曲循环'
       } else if (state.playMethod === 2) {
-        icon = '&#xe612;'
+        icon = 'icon-bofangye-caozuolan-suijibofang'
         text = '随机播放'
       }
       return { icon, text }

@@ -1,7 +1,7 @@
 <template>
   <div class="ms-part-title">
     <p v-text="partTitle"></p>
-    <i class="iconfont">&#xe602;</i>
+    <i class="iconfont icon-arrowright"></i>
   </div>
 </template>
 

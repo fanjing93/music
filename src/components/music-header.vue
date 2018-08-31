@@ -1,7 +1,7 @@
 <template>
   <header>
     <ul class="ms-header flex flex-justify-space-between">
-      <li><i class="btn-left-menu iconfont">&#xe60b;</i></li>
+      <li><i class="iconfont icon-menu"></i></li>
       <li>
         <ul class="ms-header-center flex flex-align-center">
           <router-link v-bind:class="[activeIndex === 0 ? 'active' : '' ]" class="ms-header-center-item" tag="li"
@@ -15,10 +15,11 @@
           </router-link>
         </ul>
       </li>
-      <li><i class="btn-right-menu iconfont">&#xe600;</i></li>
+      <li><i class="iconfont icon-iconfont7"></i></li>
     </ul>
     <transition name="fade">
       <router-link v-show="!scrolled" tag="div" to="/search" class="ms-header-search">
+        <i class="iconfont icon-cx"></i>
         <input type="search" placeholder="搜索">
       </router-link>
     </transition>
@@ -26,8 +27,6 @@
 </template>
 
 <script>
-  import router from '../router';
-
   export default {
     name: "ms-header",
     props: ['activeIndex'],
@@ -85,7 +84,20 @@
     .ms-header-search {
       width: 100%;
       background-color: #41B883;
-      padding-top: 0.9rem;
+      margin-top: 0.9rem;
+      position: relative;
+      i{
+        position: absolute;
+        left: 45%;
+        top: 50%;
+        -webkit-transform: translate(-50%,-50%);
+        -moz-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        -o-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.8);
+      }
       input[type="search"] {
         width: 100%;
         border: none;
@@ -94,8 +106,17 @@
         background-color: #38a675;
         color: #FFFFFF;
         text-align: center;
-        &::placeholder {
+        &::-moz-placeholder{
           color: rgba(255, 255, 255, 0.8);
+          text-indent: 1em;
+        }
+        &:-ms-input-placeholder{
+          color: rgba(255, 255, 255, 0.8);
+          text-indent: 1em;
+        }
+        &::-webkit-input-placeholder {
+          color: rgba(255, 255, 255, 0.8);
+          text-indent: 1em;
         }
         &::-webkit-search-cancel-button {
           display: none;

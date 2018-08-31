@@ -1,7 +1,7 @@
 <template>
   <ul class="ms-menu-list">
     <li v-for="item in menuList" class="ms-menu-list-item">
-      <i class="iconfont" v-html="item.iconfont"></i>
+      <i class="iconfont" :class="item.iconClass"></i>
       <router-link tag="div" :to="item.href" v-text="item.title"></router-link>
     </li>
   </ul>
@@ -10,32 +10,32 @@
 <script>
   let menuList = [
     {
-      iconfont: '&#xe68d;',
+      iconClass: 'icon-ren',
       title: '歌手',
       href: '/singer'
     },
     {
-      iconfont: '&#xe6c5;',
+      iconClass: 'icon-paihang1',
       title: '排行',
       href: '/rank'
     },
     {
-      iconfont: '&#xe601;',
+      iconClass: 'icon-ziyuan',
       title: '电台',
       href: '/radio'
     },
     {
-      iconfont: '&#xe6ae;',
+      iconClass: 'icon-leimupinleifenleileibie2',
       title: '分类歌单',
       href: '/songList'
     },
     {
-      iconfont: '&#xe63a;',
+      iconClass: 'icon-shipin',
       title: '视频MV',
       href: '/mv'
     },
     {
-      iconfont: '&#xe603;',
+      iconClass: 'icon-zhuanji',
       title: '数字专辑',
       href: '/album'
     }

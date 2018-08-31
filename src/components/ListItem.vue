@@ -4,11 +4,11 @@
       <img :src="type === 'song' ? dataList.imgurl : dataList.picurl" alt=""/>
       <div class="ms-list-item-img-tip">
         <span class="icon">
-          <i v-if="type === 'song'" class="iconfont">&#xe6a8;</i>
-          <i v-else class="iconfont font-size-1-2 margin-right-0">&#xe6df;</i>
+          <i v-if="type === 'song'" class="iconfont icon-kefu"></i>
+          <i v-else class="iconfont font-size-1-2 margin-right-0 icon-mv1"></i>
           {{ dataList.listennum | playAmount }}
         </span>
-        <span v-if="type === 'song'" class="icon"><i class="iconfont margin-right-0">&#xe62b;</i></span>
+        <span v-if="type === 'song'" class="icon"><i class="iconfont margin-right-0 icon-8shipinicon"></i></span>
       </div>
     </div>
     <div v-if="type === 'song'" class="ms-list-item-info">

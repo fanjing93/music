@@ -4,24 +4,27 @@
     <div class="ms-list-container">
       <div class="ms-list-title">
         <div class="ms-list-title-left">
-          <i class="iconfont" v-html="getPlayMethod.icon"></i>
+          <i class="iconfont" :class="getPlayMethod.icon"></i>
           <span class="song-name" v-text="getPlayMethod.text"></span>
           <span class="song-length" v-show="playMethod !== 1">({{ playlist.length }}首)</span>
         </div>
         <ul class="ms-list-title-right">
-          <li><i class="iconfont">&#xe890;</i></li>
-          <li><i class="iconfont">&#xe632;</i></li>
-          <li><i class="iconfont">&#xe620;</i></li>
+          <li><i class="iconfont icon-iconxiazai1"></i></li>
+          <li><i class="iconfont icon-jiahao1"></i></li>
+          <li><i class="iconfont icon-shanchu"></i></li>
         </ul>
       </div>
       <ul class="ms-list">
         <li class="ms-item">
           <div class="ms-item-song-info">目不转睛-王以太</div>
           <div class="ms-item-icon">
-            <i class="iconfont">&#xe620;</i>
+            <i class="iconfont icon-shanchu"></i>
           </div>
         </li>
-        <li class="ms-item-add-song">添加歌曲到队列</li>
+        <li class="ms-item-add-song">
+          <i class="iconfont icon-iconfont7"></i>
+          添加歌曲到队列
+        </li>
       </ul>
       <div class="ms-list-bottom">关闭</div>
     </div>

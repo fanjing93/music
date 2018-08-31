@@ -1,6 +1,6 @@
 <template>
   <div class="ms-con-bottom">
-    <list v-show="true"></list>
+    <list v-show="false"></list>
     <footer class="ms-footer-container">
       <div class="ms-footer-left">
         <div v-show="false" class="ms-footer-static">QQ音乐 听我想听的音乐</div>
@@ -14,8 +14,8 @@
         </div>
       </div>
       <div class="ms-footer-control" :class="">
-        <i class="iconfont footer-btn-play" v-html="playState ? '&#xe710;' : '&#xe6d9;'" @click.stop="play"></i>
-        <i class="iconfont footer-btn-list">&#xe604;</i>
+        <i class="iconfont footer-btn-play" :class="playState ? 'icon-zanting' : 'icon-bofang'" @click.stop="play"></i>
+        <i class="iconfont footer-btn-list icon-bofangqi_shouyegequliebiao_"></i>
       </div>
     </footer>
   </div>
