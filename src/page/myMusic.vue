@@ -18,8 +18,9 @@
   import SongList from '@/components/SongList';
   import MvList from '@/components/MvList';
   import MsFooter from '@/components/MsFooter';
+  import search from '@/page/search';
   import API from '@/config/api';
-  import {mapActions} from 'vuex';
+  import {mapState, mapActions} from 'vuex';
 
   export default {
     name: "my-music",
@@ -31,37 +32,75 @@
         mvlist: [],
       }
     },
+    computed: {
+      ...mapState({
+        searchPage: 'searchPage'
+      })
+    },
     components: {
       'ms-header': msHeader,
       'swiper-list': SwiperList,
       'menu-list': MenuList,
       'song-list': SongList,
       'mv-list': MvList,
-      'ms-footer': MsFooter
+      'ms-footer': MsFooter,
+      'ms-search': search
     },
     methods: {
       ...mapActions([
-        'stateInit'
-      ])
+        'stateInit',
+        'searchSong'
+      ]),
+      queryIndexData() {
+        this.$http.jsonp(API.URL_RRCOM, {
+          params: {
+            tpl: 'v12',
+            rnd: 0
+          },
+          jsonp: 'jsonpCallback'
+        }).then(response => {
+          // console.log(response.data.data);
+          this.recommends = response.data.data.focus;
+          this.songlist = response.data.data['hotdiss'].list;
+          this.mvlist = response.data.data['shoubomv'].all;
+        }).catch(function (response) {
+          console.log(response)
+        })
+      }
     },
-    mounted: function () {
+    beforeCreate() {
+      console.log('beforeCreate');
+    },
+    created() {
+      console.log('created');
+
+    },
+    beforeMount() {
+      console.log('beforeMount');
+
+    },
+    mounted() {
+      console.log('mounted');
       // 状态初始化
       this.stateInit();
       // 请求首页数据
-      this.$http.jsonp(API.URL_RRCOM, {
-        params: {
-          tpl: 'v12',
-          rnd: 0
-        },
-        jsonp: 'jsonpCallback'
-      }).then(response => {
-        console.log(response.data.data);
-        this.recommends = response.data.data.focus;
-        this.songlist = response.data.data['hotdiss'].list;
-        this.mvlist = response.data.data['shoubomv'].all;
-      }).catch(function (response) {
-        console.log(response)
-      })
+      this.queryIndexData();
+    },
+    beforeUpdate() {
+      console.log('beforeUpdate');
+
+    },
+    updated() {
+      console.log('updated');
+
+    },
+    beforeDestroy() {
+      console.log('beforeDestroy');
+
+    },
+    destroyed(){
+      console.log('destroyed');
+
     }
   }
 </script>
@@ -70,5 +109,10 @@
   .content {
     padding-top: 5.96rem;
     padding-bottom: 3.5rem;
+  }
+
+  .ms-search {
+    width: 100%;
+    height: 100%;
   }
 </style>

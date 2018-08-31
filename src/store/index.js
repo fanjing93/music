@@ -30,7 +30,8 @@ export default new Vuex.Store({
       playingTime: 0, // 当前歌曲已播放时长
       currentLyricIndex: 0, // 当前歌词下标
       playState: false, // 播放状态
-      likedSongs: [] // 标记为“我喜欢”的歌曲
+      likedSongs: [], // 标记为“我喜欢”的歌曲m
+      searchPage: false
     }
   },
   getters: {

@@ -13,7 +13,8 @@ const SET_PLAYERSHOW = 'SET_PLAYERSHOW' // 设置播放器的隐藏与显示
 const SET_DURATION = 'SET_DURATION' // 设置当前歌曲总时长
 const CHANGE_PLAY_METHOD = 'CHANGE_PLAY_METHOD' // 切换播放方式
 const SET_PLAYLISTSHOW = 'SET_PLAYLISTSHOW' // 设置播放列表的隐藏与显示
-const SET_SONGLIKED = 'SET_SONGLIKED' // 标记/取消标记歌曲为“我喜欢”
+const SET_SONGLIKED = 'SET_SONGLIKED' // 标记/取消标记歌曲为“我喜欢”,
+const SEARCH_SONG = 'SEARCH_SONG';
 
 export default {
   // 初始化
@@ -150,5 +151,9 @@ export default {
       state.likedSongs.push(song.id)
     }
     localStorage.likedSongs = JSON.stringify(state.likedSongs)
+  },
+  // 搜索
+  [SEARCH_SONG]: function (state, show) {
+    state.searchPage = show;
   }
 }

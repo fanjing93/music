@@ -13,9 +13,9 @@
           </div>
         </div>
       </div>
-      <div class="ms-footer-control" :class="">
-        <i class="iconfont footer-btn-play" :class="playState ? 'icon-zanting1' : 'icon-bofang'" @click.stop="play"></i>
-        <i class="iconfont footer-btn-list icon-liebiao" @click.stop="setPlaylistShow(true)"></i>
+      <div class="ms-footer-control" :class="!playlist.length ? 'no-song' : ''">
+        <i class="iconfont footer-btn-play" :class="playState ? 'icon-zanting1' : 'icon-bofang'" @click.stop="playlist.length ? play : ''"></i>
+        <i class="iconfont footer-btn-list icon-liebiao" @click.stop="playlist.length ? setPlaylistShow(true) : ''"></i>
       </div>
     </footer>
   </div>
