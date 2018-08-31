@@ -63,6 +63,9 @@
       search: function (e) {
         console.log(e);
       },
+      clearSearchKey(){
+
+      }
     },
     mounted: function () {
       this.handleScroll();
