@@ -1,6 +1,9 @@
 <template>
   <div class="ms-batch-container">
-    <button @click="changSong">换一批</button>
+    <button @click="changSong">
+      <i class="iconfont icon-repeat"></i>
+      换一批
+    </button>
   </div>
 </template>
 
@@ -37,6 +40,9 @@
       text-align: center;
       font-size: 1rem;
       padding: 0.1rem 0.7rem;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
     }
   }
 </style>

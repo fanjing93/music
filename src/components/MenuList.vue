@@ -30,7 +30,7 @@
       href: '/songList'
     },
     {
-      iconClass: 'icon-icon434-copy',
+      iconClass: 'icon-shipin',
       title: '视频MV',
       href: '/mv'
     },
