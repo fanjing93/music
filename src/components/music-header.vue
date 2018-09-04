@@ -66,9 +66,9 @@
         }
         this.beforeScrollY = afterScrollY;
       },
-      searchEvent(autoSearch = true) {
+      searchEvent(autoSearch = true,key = this.searchKey) {
         this.isShowIcon = this.searchKey;
-        this.$emit('searchEvent', {key: this.searchKey, autoSearch});
+        this.$emit('searchEvent', {key, autoSearch});
       },
       clearSearchKey() {
         this.isShowIcon = false;
