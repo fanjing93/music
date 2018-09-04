@@ -28,7 +28,8 @@
     <transition name="fade">
       <div v-show="pageName === 'search'" class="ms-header-search">
         <div class="ms-input-search">
-          <input type="search" v-model="searchKey" placeholder="搜索歌曲、MV、歌词、歌手等" @input="searchEvent(true)" @keyup.enter="searchEvent(false)">
+          <input type="search" v-model="searchKey" placeholder="搜索歌曲、MV、歌词、歌手等" @input="searchEvent(true)"
+                 @keyup.enter="searchEvent(false)">
           <i v-show="is_show_icon" class="iconfont icon-chuyidong cancel-icon" @click="clearSearchKey"></i>
         </div>
         <router-link class="cancel" to="/" tag="span">取消</router-link>
@@ -44,32 +45,34 @@
     data: function () {
       return {
         scrolled: false,
-        searchKey:'',
+        searchKey: '',
         is_show_icon: false
       }
     },
     methods: {
-      handleScroll: function () {
-        let beforeScrollY = window.scrollY;
-        window.addEventListener('scroll', () => {
-          let afterScrollY = window.scrollY;
-          let diffY = afterScrollY - beforeScrollY;
-          if (diffY > 25) { // 向下滚动距离大于25
-            this.scrolled = true;
-          } else if (diffY < -10) { // 向上滚动
-            this.scrolled = false;
-          }
-          beforeScrollY = afterScrollY;
-        }, false);
+      handleScroll() {
+        this.beforeScrollY = window.scrollY;
+        window.addEventListener('scroll', this.scroll, false);
       },
-      searchEvent: function (autoSearch = true) {
+      scroll() {
+        let afterScrollY = window.scrollY;
+        let diffY = afterScrollY - this.beforeScrollY;
+        if (diffY > 25) {
+          // 向下滚动距离大于25
+          this.scrolled = true;
+        } else if (diffY < -10) {
+          // 向上滚动
+          this.scrolled = false;
+        }
+        this.beforeScrollY = afterScrollY;
+      },
+      searchEvent(autoSearch = true) {
         this.is_show_icon = this.searchKey;
-        this.$emit('searchEvent',{key:this.searchKey,autoSearch})
+        this.$emit('searchEvent', {key: this.searchKey, autoSearch})
       },
-      clearSearchKey(){
+      clearSearchKey() {
         this.is_show_icon = false;
         this.searchKey = '';
-        this.$emit('clearSearchKey');
       }
     },
     mounted: function () {
@@ -94,7 +97,7 @@
         margin-top: 0;
         display: flex;
         align-items: center;
-        .ms-input-search{
+        .ms-input-search {
           flex: 1;
           position: relative;
           input[type="search"] {
@@ -106,7 +109,7 @@
               text-indent: 0;
             }
           }
-          i.cancel-icon{
+          i.cancel-icon {
             width: auto;
             position: absolute;
             right: 0.3rem;

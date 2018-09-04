@@ -1,7 +1,9 @@
 <template>
   <div class="ms-search-container">
-    <ms-header :pageName="pageName" :activeIndex="activeIndex" @searchEvent="search" @clearSearchKey="clearSearchKey"></ms-header>
-
+    <ms-header :pageName="pageName" :activeIndex="activeIndex" @searchEvent="search"></ms-header>
+    <ul class="ms-search-key-list">
+      <li></li>
+    </ul>
     <ms-footer></ms-footer>
   </div>
 </template>
@@ -34,14 +36,15 @@
        */
       search: function (data) {
         console.log(data)
-      },
-      clearSearchKey: function () {
-        console.log(111);
       }
     }
   }
 </script>
 
 <style type="text/less" lang="less" scoped>
-
+  .ms-search-key-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
 </style>
