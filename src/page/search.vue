@@ -1,6 +1,6 @@
 <template>
   <div class="ms-search-container">
-    <ms-header :pageName="pageName" :activeIndex="activeIndex" v-model="searchKey" @input="searchEvent('',true)" @keyup.enter="searchEvent('', false)"></ms-header>
+    <ms-header :pageName="pageName" :activeIndex="activeIndex" @searchEvent="search" @clearSearchKey="clearSearchKey"></ms-header>
 
     <ms-footer></ms-footer>
   </div>
@@ -14,8 +14,8 @@
     props: ['activeIndex'],
     name: "search",
     data() {
-      return{
-        pageName:'search',
+      return {
+        pageName: 'search',
         hotKeys: [], // 热门搜索
         searchHistory: [], // 历史搜索
         searchKey: '', // 当前搜索关键字
@@ -30,12 +30,13 @@
     },
     methods: {
       /****
-       * @param key
-       * @param autoSearch value：false 保存历史纪录
+       * @param data [key, autoSearch]
        */
-      searchEvent: function (key = this.searchKey, autoSearch = true) {
-        console.log(key);
-        console.log(autoSearch);
+      search: function (data) {
+        console.log(data)
+      },
+      clearSearchKey: function () {
+        console.log(111);
       }
     }
   }

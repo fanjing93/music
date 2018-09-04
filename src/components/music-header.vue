@@ -28,8 +28,8 @@
     <transition name="fade">
       <div v-show="pageName === 'search'" class="ms-header-search">
         <div class="ms-input-search">
-          <input type="search" placeholder="搜索歌曲、MV、歌词、歌手等" @input="search($event)">
-          <i class="iconfont icon-chuyidong cancel-icon" @click="clearSearchKey"></i>
+          <input type="search" v-model="searchKey" placeholder="搜索歌曲、MV、歌词、歌手等" @input="searchEvent(true)" @keyup.enter="searchEvent(false)">
+          <i v-show="is_show_icon" class="iconfont icon-chuyidong cancel-icon" @click="clearSearchKey"></i>
         </div>
         <router-link class="cancel" to="/" tag="span">取消</router-link>
       </div>
@@ -43,7 +43,9 @@
     props: ['activeIndex', 'pageName'],
     data: function () {
       return {
-        scrolled: false
+        scrolled: false,
+        searchKey:'',
+        is_show_icon: false
       }
     },
     methods: {
@@ -60,11 +62,14 @@
           beforeScrollY = afterScrollY;
         }, false);
       },
-      search: function (e) {
-        console.log(e);
+      searchEvent: function (autoSearch = true) {
+        this.is_show_icon = this.searchKey;
+        this.$emit('searchEvent',{key:this.searchKey,autoSearch})
       },
       clearSearchKey(){
-
+        this.is_show_icon = false;
+        this.searchKey = '';
+        this.$emit('clearSearchKey');
       }
     },
     mounted: function () {
