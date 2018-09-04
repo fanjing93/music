@@ -30,7 +30,7 @@
         <div class="ms-input-search">
           <input type="search" v-model="searchKey" placeholder="搜索歌曲、MV、歌词、歌手等" @input="searchEvent(true)"
                  @keyup.enter="searchEvent(false)">
-          <i v-show="is_show_icon" class="iconfont icon-chuyidong cancel-icon" @click="clearSearchKey"></i>
+          <i v-show="isShowIcon" class="iconfont icon-chuyidong cancel-icon" @click="clearSearchKey"></i>
         </div>
         <router-link class="cancel" to="/" tag="span">取消</router-link>
       </div>
@@ -46,7 +46,7 @@
       return {
         scrolled: false,
         searchKey: '',
-        is_show_icon: false
+        isShowIcon: false
       }
     },
     methods: {
@@ -67,11 +67,11 @@
         this.beforeScrollY = afterScrollY;
       },
       searchEvent(autoSearch = true) {
-        this.is_show_icon = this.searchKey;
-        this.$emit('searchEvent', {key: this.searchKey, autoSearch})
+        this.isShowIcon = this.searchKey;
+        this.$emit('searchEvent', {key: this.searchKey, autoSearch});
       },
       clearSearchKey() {
-        this.is_show_icon = false;
+        this.isShowIcon = false;
         this.searchKey = '';
       }
     },
