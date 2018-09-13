@@ -16,11 +16,19 @@
       </ul>
     </div>
     <div v-else class="ms-search-result">
+      <ul class="ms-list-tab">
+        <li>单曲</li>
+        <li>视频</li>
+        <li>专辑</li>
+        <li>歌单</li>
+        <li>歌手</li>
+        <li>用户</li>
+      </ul>
       <!--搜索结果-->
       <ul class="ms-search-result-list">
-        <li class="ms-search-result-list-item" v-for="songlist in searchResultList" :key="songlist['docid']">
+        <li class="ms-search-result-list-item" @click="" v-for="songlist in searchResultList" :key="songlist['docid']">
           <span v-text="songlist.name"></span>
-          <span v-text="songlist.singer"></span>
+          <span class="search-singer" v-text="songlist.singer"></span>
         </li>
       </ul>
     </div>
@@ -87,6 +95,21 @@
 </script>
 
 <style type="text/less" lang="less" scoped>
+  .clearFix(){
+    *zoom: 1;
+    &:before,
+    &:after{
+      display:table;
+      content: "";
+    }
+    &:after {
+      clear: both;
+    }
+  }
+  .ms-search-result{
+    padding-top: 2.43rem;
+  }
+
   .ms-search-result-list,
   .ms-search-key-list {
     width: 100%;
@@ -111,7 +134,23 @@
 
   .ms-search-result-list {
     &-item {
+      .search-singer{
+        color: #B4B4B4;
+        font-size: 0.8rem
+      }
+    }
+  }
 
+  .ms-list-tab{
+    vertical-align: middle;
+    overflow: hidden;
+    width: 100%;
+    .clearFix();
+    li{
+      float: left;
+      width: 18.5%;
+      padding: 0.3rem;
+      text-align: center;
     }
   }
 
