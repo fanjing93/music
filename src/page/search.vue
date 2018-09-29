@@ -31,7 +31,6 @@
           <span class="search-singer" v-text="songlist.singer"></span>
         </li>
       </ul>
-      <input type="text">      
     </div>
     <ms-footer></ms-footer>
   </div>
