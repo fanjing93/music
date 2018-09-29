@@ -31,6 +31,7 @@
           <span class="search-singer" v-text="songlist.singer"></span>
         </li>
       </ul>
+      <input type="text">      
     </div>
     <ms-footer></ms-footer>
   </div>
@@ -84,7 +85,7 @@
           jsonp: 'jsonpCallback'
         }).then(res => {
           // 在这里只取song
-          this.searchResult = res.data.data.song;
+          this.searchResult = res.data && res.data.data ? res.data.data.song : [];
           this.searchResultList = this.searchResult['itemlist'];
         }).catch(err => {
           console.log(err);
@@ -142,14 +143,13 @@
   }
 
   .ms-list-tab{
-    vertical-align: middle;
-    overflow: hidden;
+    overflow: auto;
     width: 100%;
-    .clearFix();
+    display: -webkit-box;
+    flex-wrap: nowrap;
+    border-bottom: 1px solid #e2e2e2;
     li{
-      float: left;
-      width: 18.5%;
-      padding: 0.3rem;
+      padding: 0.5rem 1.27rem;
       text-align: center;
     }
   }
